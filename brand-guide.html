@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casa de la Música — Guía de Marca</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --dark: #0E0E0E;
+  --surface: #1A1A1A;
+  --surface-light: #262626;
+  --cream: #F2EDE8;
+  --warm-gray: #9A9089;
+  --crimson: #C41A2E;
+  --crimson-hover: #A01525;
+  --amber: #D4940A;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-heading: 'Barlow Condensed', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-body); background: var(--dark); color: var(--cream); min-height: 100vh; }
+
+/* HEADER */
+.header { padding: 40px 32px 24px; border-bottom: 1px solid var(--surface-light); }
+.header h1 { font-family: var(--font-display); font-size: clamp(36px, 6vw, 56px); letter-spacing: 2px; line-height: 1; margin-bottom: 8px; font-weight: 400; }
+.header .subtitle { font-family: var(--font-heading); font-size: clamp(14px, 2vw, 18px); color: var(--warm-gray); letter-spacing: 3px; text-transform: uppercase; }
+
+/* TABS */
+.tabs { display: flex; border-bottom: 1px solid var(--surface-light); overflow-x: auto; }
+.tab-btn {
+  font-family: var(--font-heading); font-size: 14px; letter-spacing: 2px; text-transform: uppercase;
+  padding: 16px 24px; background: none; border: none; border-bottom: 3px solid transparent;
+  color: var(--warm-gray); cursor: pointer; white-space: nowrap; transition: all 0.2s;
+}
+.tab-btn.active { border-bottom-color: var(--crimson); color: var(--cream); }
+.tab-btn:hover { color: var(--cream); }
+
+/* CONTENT */
+.tab-content { display: none; padding: 32px; }
+.tab-content.active { display: block; }
+
+.section-title {
+  font-family: var(--font-heading); font-weight: 700; font-size: 22px;
+  letter-spacing: 1px; margin-bottom: 16px; padding-bottom: 12px;
+  border-bottom: 1px solid var(--surface-light);
+}
+.section-desc { color: var(--warm-gray); max-width: 680px; line-height: 1.7; margin-bottom: 32px; font-size: 15px; }
+
+/* PALETTE */
+.color-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-bottom: 40px; }
+.color-card { background: var(--surface); border-radius: 12px; overflow: hidden; border: 1px solid var(--surface-light); }
+.color-swatch { height: 80px; }
+.color-info { padding: 14px 16px; }
+.color-name { font-family: var(--font-heading); font-size: 14px; letter-spacing: 1px; margin-bottom: 4px; }
+.color-hex { font-family: monospace; font-size: 13px; color: var(--warm-gray); margin-bottom: 6px; }
+.color-use { font-size: 12px; color: var(--warm-gray); }
+
+.context-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+.context-card { background: var(--surface); border-radius: 12px; padding: 32px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.context-label { font-size: 12px; color: var(--warm-gray); letter-spacing: 2px; text-transform: uppercase; }
+
+.btn-cta {
+  background: var(--crimson); color: var(--cream); border: none; padding: 14px 32px;
+  border-radius: 8px; font-family: var(--font-heading); font-size: 16px;
+  letter-spacing: 2px; text-transform: uppercase; cursor: pointer;
+}
+.btn-wa {
+  background: #10823A; color: #fff; border: none; padding: 14px 32px;
+  border-radius: 8px; font-family: var(--font-heading); font-size: 16px;
+  letter-spacing: 1px; cursor: pointer; display: flex; align-items: center; gap: 8px;
+}
+.badge {
+  background: rgba(212,148,10,0.13); color: var(--amber); border: 1px solid rgba(212,148,10,0.27);
+  padding: 8px 20px; border-radius: 100px; font-family: var(--font-heading);
+  font-size: 14px; letter-spacing: 2px; display: inline-block;
+}
+.instrument-card-demo {
+  background: var(--surface-light); border-radius: 10px; padding: 20px 24px;
+  width: 100%; max-width: 220px; text-align: center;
+}
+.instrument-card-demo .name { font-family: var(--font-heading); font-size: 18px; letter-spacing: 1px; margin-bottom: 4px; }
+.instrument-card-demo .meta { font-size: 13px; color: var(--warm-gray); }
+.instrument-card-demo .ages { font-size: 12px; color: var(--amber); margin-top: 8px; }
+
+/* TYPOGRAPHY */
+.type-sample { margin-bottom: 48px; }
+.type-label { display: flex; align-items: baseline; gap: 16px; margin-bottom: 8px; flex-wrap: wrap; }
+.type-tag { font-size: 12px; color: var(--crimson); font-family: monospace; letter-spacing: 1px; }
+.type-desc { font-size: 12px; color: var(--warm-gray); }
+.type-display { font-family: var(--font-display); font-size: clamp(48px, 8vw, 80px); line-height: 0.95; letter-spacing: 2px; }
+.type-heading-demo { font-family: var(--font-heading); font-weight: 700; font-size: 32px; letter-spacing: 1px; margin-bottom: 8px; }
+.type-nav-demo {
+  font-family: var(--font-heading); font-weight: 600; font-size: 16px;
+  letter-spacing: 3px; text-transform: uppercase; display: flex; gap: 32px;
+  color: var(--warm-gray); margin-top: 16px; flex-wrap: wrap;
+}
+.type-body-demo { font-size: 16px; line-height: 1.75; max-width: 600px; }
+.scale-row { display: flex; align-items: baseline; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
+.scale-label { font-size: 11px; color: var(--warm-gray); font-family: monospace; min-width: 90px; }
+
+/* STRUCTURE */
+.page-block { background: var(--surface); border-radius: 12px; border: 1px solid var(--surface-light); overflow: hidden; margin-bottom: 24px; }
+.page-header { padding: 16px 24px; background: var(--surface-light); display: flex; align-items: center; gap: 12px; }
+.page-name { font-family: var(--font-display); font-size: 24px; letter-spacing: 2px; }
+.page-count { font-size: 12px; color: var(--warm-gray); }
+.page-sections { padding: 16px 24px; }
+.section-row { padding: 12px 0; display: flex; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--surface-light); }
+.section-row:last-child { border-bottom: none; }
+.section-name { font-family: var(--font-heading); font-weight: 700; font-size: 15px; color: var(--crimson); min-width: 140px; letter-spacing: 1px; }
+.section-desc-text { font-size: 14px; color: var(--warm-gray); line-height: 1.5; }
+
+.flow-container { background: var(--surface); border-radius: 12px; padding: 32px; border: 1px solid var(--surface-light); margin-top: 40px; }
+.flow-steps { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.flow-step { text-align: center; min-width: 120px; }
+.flow-number { width: 36px; height: 36px; border-radius: 50%; background: var(--crimson); display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-size: 16px; margin: 0 auto 8px; }
+.flow-text { font-family: var(--font-heading); font-size: 13px; letter-spacing: 1px; margin-bottom: 4px; }
+.flow-sub { font-size: 11px; color: var(--warm-gray); }
+.flow-arrow { color: var(--warm-gray); font-size: 20px; }
+
+/* WIREFRAME */
+.wireframe { background: var(--surface); border-radius: 16px; border: 1px solid var(--surface-light); overflow: hidden; max-width: 800px; margin: 0 auto; }
+.wf-nav { padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--surface-light); }
+.wf-logo { width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--cream); display: flex; align-items: center; justify-content: center; font-size: 8px; font-family: var(--font-heading); text-align: center; line-height: 1; }
+.wf-nav-links { display: flex; gap: 24px; }
+.wf-nav-links span { font-family: var(--font-heading); font-size: 11px; letter-spacing: 2px; color: var(--warm-gray); }
+.wf-nav-links span:first-child { color: var(--cream); }
+.wf-cta-sm { background: var(--crimson); color: var(--cream); border: none; padding: 8px 16px; border-radius: 6px; font-family: var(--font-heading); font-size: 11px; letter-spacing: 1px; cursor: pointer; }
+.wf-hero { padding: 64px 40px; background: linear-gradient(135deg, var(--dark) 0%, var(--surface-light) 100%); text-align: center; position: relative; overflow: hidden; }
+.wf-hero-scanlines { position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(14,14,14,0.04) 2px, rgba(14,14,14,0.04) 4px); opacity: 0.3; }
+.wf-hero-content { position: relative; }
+.wf-hero h2 { font-family: var(--font-display); font-size: clamp(32px, 5vw, 52px); line-height: 1; letter-spacing: 2px; margin-bottom: 8px; font-weight: 400; }
+.wf-hero .accent { color: var(--crimson); }
+.wf-hero p { font-size: 15px; color: var(--warm-gray); max-width: 480px; margin: 0 auto 28px; line-height: 1.6; }
+.wf-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.wf-btn-primary { background: var(--crimson); color: var(--cream); border: none; padding: 14px 28px; border-radius: 8px; font-family: var(--font-heading); font-size: 14px; letter-spacing: 2px; cursor: pointer; }
+.wf-btn-wa { background: #10823A; color: #fff; border: none; padding: 14px 28px; border-radius: 8px; font-family: var(--font-heading); font-size: 14px; letter-spacing: 1px; cursor: pointer; }
+.wf-value-props { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--surface-light); }
+.wf-value-prop { padding: 32px 24px; text-align: center; border-right: 1px solid var(--surface-light); }
+.wf-value-prop:last-child { border-right: none; }
+.wf-value-prop .icon { font-size: 28px; margin-bottom: 12px; }
+.wf-value-prop h4 { font-family: var(--font-heading); font-weight: 700; font-size: 16px; letter-spacing: 1px; margin-bottom: 8px; }
+.wf-value-prop p { font-size: 13px; color: var(--warm-gray); line-height: 1.6; }
+.wf-instruments { padding: 40px 24px; }
+.wf-instruments .label { font-family: var(--font-heading); font-weight: 700; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 8px; text-align: center; }
+.wf-instruments h3 { font-family: var(--font-display); font-size: 32px; letter-spacing: 2px; text-align: center; margin-bottom: 24px; font-weight: 400; }
+.wf-inst-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 10px; }
+.wf-inst-card { background: var(--surface-light); border-radius: 10px; padding: 16px 8px; text-align: center; }
+.wf-inst-card .emoji { font-size: 24px; margin-bottom: 6px; }
+.wf-inst-card .name { font-family: var(--font-heading); font-size: 11px; letter-spacing: 1px; }
+.wf-galas { padding: 48px 24px; background: linear-gradient(180deg, rgba(196,26,46,0.08) 0%, var(--surface) 100%); border-top: 1px solid rgba(196,26,46,0.2); text-align: center; }
+.wf-galas .label { font-family: var(--font-heading); font-weight: 700; font-size: 13px; letter-spacing: 3px; color: var(--crimson); margin-bottom: 8px; }
+.wf-galas h3 { font-family: var(--font-display); font-size: clamp(24px, 4vw, 36px); letter-spacing: 2px; margin-bottom: 16px; font-weight: 400; }
+.wf-galas p { font-size: 14px; color: var(--warm-gray); max-width: 520px; margin: 0 auto 28px; line-height: 1.7; }
+.wf-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; max-width: 500px; margin: 0 auto; }
+.wf-gallery-item { aspect-ratio: 4/3; background: var(--surface-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--warm-gray); font-family: monospace; }
+.wf-stats { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--surface-light); border-bottom: 1px solid var(--surface-light); }
+.wf-stat { padding: 28px 16px; text-align: center; border-right: 1px solid var(--surface-light); }
+.wf-stat:last-child { border-right: none; }
+.wf-stat .number { font-family: var(--font-display); font-size: 36px; letter-spacing: 1px; color: var(--amber); }
+.wf-stat .label { font-size: 12px; color: var(--warm-gray); letter-spacing: 1px; }
+.wf-final-cta { padding: 48px 24px; text-align: center; }
+.wf-final-cta h3 { font-family: var(--font-display); font-size: 28px; letter-spacing: 2px; margin-bottom: 8px; font-weight: 400; }
+.wf-final-cta > p { font-size: 14px; color: var(--warm-gray); margin-bottom: 24px; }
+.wf-form { background: var(--surface-light); border-radius: 12px; padding: 32px; max-width: 400px; margin: 0 auto; }
+.wf-form-field { background: var(--dark); border-radius: 8px; padding: 12px 16px; margin-bottom: 10px; text-align: left; font-size: 13px; color: var(--warm-gray); }
+.wf-form-submit { background: var(--crimson); color: var(--cream); border: none; padding: 14px 28px; border-radius: 8px; font-family: var(--font-heading); font-size: 14px; letter-spacing: 2px; cursor: pointer; width: 100%; margin-top: 8px; }
+.wf-footer { padding: 24px; border-top: 1px solid var(--surface-light); display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--warm-gray); flex-wrap: wrap; gap: 12px; }
+.wf-footer-links { display: flex; gap: 16px; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <h1>CASA DE LA MÚSICA</h1>
+  <div class="subtitle">Guía de Marca & Estructura Web</div>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab('palette')">Paleta</button>
+  <button class="tab-btn" onclick="switchTab('typography')">Tipografía</button>
+  <button class="tab-btn" onclick="switchTab('structure')">Estructura Web</button>
+  <button class="tab-btn" onclick="switchTab('wireframe')">Wireframe Home</button>
+</div>
+
+<!-- ==================== PALETA ==================== -->
+<div id="tab-palette" class="tab-content active">
+  <div class="section-title">Paleta de Colores</div>
+  <p class="section-desc">Base oscura con acentos cálidos. El negro establece la estética rock/escenario, el carmesí da urgencia a los CTAs, y el ámbar aporta calidez sin perder energía. El crema reemplaza al blanco puro para mayor confort visual.</p>
+
+  <div class="color-grid">
+    <div class="color-card"><div class="color-swatch" style="background:#0E0E0E; border: 1px solid #262626;"></div><div class="color-info"><div class="color-name">Negro Profundo</div><div class="color-hex">#0E0E0E</div><div class="color-use">Fondo principal</div></div></div>
+    <div class="color-card"><div class="color-swatch" style="background:#1A1A1A;"></div><div class="color-info"><div class="color-name">Superficie</div><div class="color-hex">#1A1A1A</div><div class="color-use">Cards, secciones alternas</div></div></div>
+    <div class="color-card"><div class="color-swatch" style="background:#262626;"></div><div class="color-info"><div class="color-name">Superficie Clara</div><div class="color-hex">#262626</div><div class="color-use">Hovers, bordes</div></div></div>
+    <div class="color-card"><div class="color-swatch" style="background:#F2EDE8;"></div><div class="color-info"><div class="color-name">Crema</div><div class="color-hex">#F2EDE8</div><div class="color-use">Texto principal, headings</div></div></div>
+    <div class="color-card"><div class="color-swatch" style="background:#9A9089;"></div><div class="color-info"><div class="color-name">Gris Cálido</div><div class="color-hex">#9A9089</div><div class="color-use">Texto secundario, captions</div></div></div>
+    <div class="color-card"><div class="color-swatch" style="background:#C41A2E;"></div><div class="color-info"><div class="color-name">Carmesí</div><div class="color-hex">#C41A2E</div><div class="color-use">CTA principal, acentos</div></div></div>
+    <div class="color-card"><div class="color-swatch" style="background:#A01525;"></div><div class="color-info"><div class="color-name">Carmesí Oscuro</div><div class="color-hex">#A01525</div><div class="color-use">Hover states</div></div></div>
+    <div class="color-card"><div class="color-swatch" style="background:#D4940A;"></div><div class="color-info"><div class="color-name">Ámbar</div><div class="color-hex">#D4940A</div><div class="color-use">Badges, highlights, detalles</div></div></div>
+  </div>
+
+  <div class="section-title">Combinaciones en Contexto</div>
+  <div class="context-grid">
+    <div class="context-card">
+      <span class="context-label">Botón CTA Principal</span>
+      <button class="btn-cta">Agenda tu Clase Gratis</button>
+    </div>
+    <div class="context-card">
+      <span class="context-label">Botón WhatsApp</span>
+      <button class="btn-wa"><span>💬</span> Escríbenos por WhatsApp</button>
+    </div>
+    <div class="context-card">
+      <span class="context-label">Badge / Highlight</span>
+      <span class="badge">+20 AÑOS DE EXPERIENCIA</span>
+    </div>
+    <div class="context-card">
+      <span class="context-label">Card de Instrumento</span>
+      <div class="instrument-card-demo">
+        <div style="font-size:32px; margin-bottom:8px;">🎸</div>
+        <div class="name">GUITARRA</div>
+        <div class="meta">Eléctrica & Acústica</div>
+        <div class="ages">Niños · Adolescentes · Adultos</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== TIPOGRAFÍA ==================== -->
+<div id="tab-typography" class="tab-content">
+  <div class="section-title">Sistema Tipográfico</div>
+  <p class="section-desc">Tres niveles: Bebas Neue para impacto (hero, títulos grandes), Barlow Condensed para estructura (navegación, subtítulos, botones), y DM Sans para legibilidad (cuerpo de texto, formularios).</p>
+
+  <div class="type-sample">
+    <div class="type-label"><span class="type-tag">DISPLAY</span><span class="type-desc">Bebas Neue · Títulos hero</span></div>
+    <div class="type-display" style="margin-bottom:8px;">APRENDE MÚSICA.</div>
+    <div class="type-display" style="color:var(--crimson);">VIVE EL ESCENARIO.</div>
+  </div>
+
+  <div class="type-sample">
+    <div class="type-label"><span class="type-tag">HEADING</span><span class="type-desc">Barlow Condensed 700 · Navegación, subtítulos</span></div>
+    <div class="type-heading-demo">Más de 1.000 Alumnos Han Subido al Escenario</div>
+    <div class="type-nav-demo">
+      <span style="color:var(--cream);">INICIO</span><span>NOSOTROS</span><span>CURSOS</span><span>GALAS</span><span>CONTACTO</span>
+    </div>
+  </div>
+
+  <div class="type-sample">
+    <div class="type-label" style="margin-bottom:12px;"><span class="type-tag">BODY</span><span class="type-desc">DM Sans · Cuerpo, formularios</span></div>
+    <div class="type-body-demo">En Casa de la Música creemos que no existe la frase "tener dedos para el piano". Si quieres aprender, puedes subir a un escenario. Llevamos más de 20 años formando músicos en Temuco con un estilo basado en la motivación, sin presiones, y con presentaciones en vivo garantizadas durante el año.</div>
+  </div>
+
+  <div class="section-title">Escala Tipográfica</div>
+  <div class="scale-row"><span class="scale-label">H1 Hero · 64px</span><span style="font-family:var(--font-display); font-size:48px; letter-spacing:2px;">VIVIR LA MÚSICA</span></div>
+  <div class="scale-row"><span class="scale-label">H2 Section · 36px</span><span style="font-family:var(--font-heading); font-weight:700; font-size:36px; letter-spacing:1px;">Nuestros Cursos</span></div>
+  <div class="scale-row"><span class="scale-label">H3 Card · 22px</span><span style="font-family:var(--font-heading); font-weight:700; font-size:22px; letter-spacing:1px;">Guitarra Eléctrica</span></div>
+  <div class="scale-row"><span class="scale-label">Nav · 14px</span><span style="font-family:var(--font-heading); font-weight:600; font-size:14px; letter-spacing:3px;">INICIO&nbsp;&nbsp;&nbsp;NOSOTROS&nbsp;&nbsp;&nbsp;CURSOS&nbsp;&nbsp;&nbsp;GALAS&nbsp;&nbsp;&nbsp;CONTACTO</span></div>
+  <div class="scale-row"><span class="scale-label">Body · 16px</span><span style="font-size:16px;">Clases individuales y grupales para todas las edades.</span></div>
+  <div class="scale-row"><span class="scale-label">Caption · 13px</span><span style="font-size:13px; color:var(--warm-gray);">Lunes a Sábado · Temuco, Chile</span></div>
+</div>
+
+<!-- ==================== ESTRUCTURA ==================== -->
+<div id="tab-structure" class="tab-content">
+  <div class="section-title">Estructura del Sitio</div>
+  <p class="section-desc">5 páginas. Cada una con un propósito claro. El flujo completo lleva al usuario desde "¿qué es esto?" hasta "quiero mi clase gratis" en menos de 60 segundos si está apurado, o le da contenido suficiente para convencerse si necesita más.</p>
+
+  <div class="page-block"><div class="page-header"><span class="page-name">HOME</span><span class="page-count">6 secciones</span></div><div class="page-sections">
+    <div class="section-row"><span class="section-name">Hero</span><span class="section-desc-text">Video/imagen de gala en vivo + headline potente + CTA 'Agenda tu clase gratis'</span></div>
+    <div class="section-row"><span class="section-name">Propuesta de Valor</span><span class="section-desc-text">3 pilares: Aprende a tu ritmo · Toca en vivo · +20 años formando músicos</span></div>
+    <div class="section-row"><span class="section-name">Instrumentos</span><span class="section-desc-text">Grid visual de los 9 instrumentos disponibles, clickeables</span></div>
+    <div class="section-row"><span class="section-name">Galas en Vivo</span><span class="section-desc-text">Sección hero secundaria: fotos/video de galas reales, testimonios de alumnos</span></div>
+    <div class="section-row"><span class="section-name">Social Proof</span><span class="section-desc-text">+1000 alumnos, +20 años, contador de galas realizadas</span></div>
+    <div class="section-row"><span class="section-name">CTA Final</span><span class="section-desc-text">Formulario simplificado + botón WhatsApp</span></div>
+  </div></div>
+
+  <div class="page-block"><div class="page-header"><span class="page-name">NOSOTROS</span><span class="page-count">3 secciones</span></div><div class="page-sections">
+    <div class="section-row"><span class="section-name">Historia</span><span class="section-desc-text">Timeline desde 2003 con fotos reales de cada etapa</span></div>
+    <div class="section-row"><span class="section-name">Filosofía</span><span class="section-desc-text">El manifiesto: 'No existe tener dedos para el piano'. Enseñanza sin presión.</span></div>
+    <div class="section-row"><span class="section-name">Equipo</span><span class="section-desc-text">Profesores con foto, instrumento y una frase personal</span></div>
+  </div></div>
+
+  <div class="page-block"><div class="page-header"><span class="page-name">CURSOS</span><span class="page-count">3 secciones</span></div><div class="page-sections">
+    <div class="section-row"><span class="section-name">Catálogo</span><span class="section-desc-text">Cada instrumento con descripción, niveles (niño/adolescente/adulto), y galería</span></div>
+    <div class="section-row"><span class="section-name">Metodología</span><span class="section-desc-text">Cómo funciona: clase de prueba → matrícula → clases semanales → gala</span></div>
+    <div class="section-row"><span class="section-name">Taller de Bandas</span><span class="section-desc-text">Sección destacada: los sábados, armar banda, tocar covers y originales</span></div>
+  </div></div>
+
+  <div class="page-block"><div class="page-header"><span class="page-name">GALAS</span><span class="page-count">3 secciones</span></div><div class="page-sections">
+    <div class="section-row"><span class="section-name">Próxima Gala</span><span class="section-desc-text">Countdown o info de la próxima presentación si hay fecha</span></div>
+    <div class="section-row"><span class="section-name">Galas Anteriores</span><span class="section-desc-text">Galería por evento con fotos y videos embebidos de Instagram/YouTube</span></div>
+    <div class="section-row"><span class="section-name">Testimonios</span><span class="section-desc-text">Alumnos contando su experiencia de tocar en vivo por primera vez</span></div>
+  </div></div>
+
+  <div class="page-block"><div class="page-header"><span class="page-name">CONTACTO</span><span class="page-count">3 secciones</span></div><div class="page-sections">
+    <div class="section-row"><span class="section-name">Formulario</span><span class="section-desc-text">Simplificado: nombre, teléfono, instrumento, edad → 'Quiero mi clase gratis'</span></div>
+    <div class="section-row"><span class="section-name">WhatsApp</span><span class="section-desc-text">Botón directo prominente</span></div>
+    <div class="section-row"><span class="section-name">Ubicación</span><span class="section-desc-text">Mapa + dirección + horarios de atención</span></div>
+  </div></div>
+
+  <!-- Flujo de conversión -->
+  <div class="section-title" style="margin-top:40px;">Flujo de Conversión</div>
+  <div class="flow-container">
+    <div class="flow-steps">
+      <div class="flow-step"><div class="flow-number">1</div><div class="flow-text">Llega a la web</div><div class="flow-sub">Google / Instagram / Boca a boca</div></div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step"><div class="flow-number">2</div><div class="flow-text">Hero + Propuesta</div><div class="flow-sub">'Aprende música. Vive el escenario.'</div></div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step"><div class="flow-number">3</div><div class="flow-text">Explora cursos</div><div class="flow-sub">Encuentra su instrumento</div></div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step"><div class="flow-number">4</div><div class="flow-text">Ve las galas</div><div class="flow-sub">Prueba social real</div></div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step"><div class="flow-number">5</div><div class="flow-text">CTA</div><div class="flow-sub">'Agenda tu clase gratis'</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== WIREFRAME HOME ==================== -->
+<div id="tab-wireframe" class="tab-content">
+  <div class="section-title">Wireframe — Home</div>
+  <p class="section-desc">Layout de la página principal con todas las secciones. Esto es la estructura, no el diseño final — pero da la idea de jerarquía, espaciado y flujo.</p>
+
+  <div class="wireframe">
+    <!-- Nav -->
+    <div class="wf-nav">
+      <div class="wf-logo">LOGO</div>
+      <div class="wf-nav-links"><span>INICIO</span><span>NOSOTROS</span><span>CURSOS</span><span>GALAS</span><span>CONTACTO</span></div>
+      <button class="wf-cta-sm">CLASE GRATIS</button>
+    </div>
+    <!-- Hero -->
+    <div class="wf-hero">
+      <div class="wf-hero-scanlines"></div>
+      <div class="wf-hero-content">
+        <div class="badge" style="margin-bottom:20px; font-size:11px;">+20 AÑOS FORMANDO MÚSICOS EN TEMUCO</div>
+        <h2>APRENDE MÚSICA.</h2>
+        <h2 class="accent">VIVE EL ESCENARIO.</h2>
+        <p style="margin-top:20px;">Clases de guitarra, bajo, batería, canto y más. Con presentaciones en vivo garantizadas durante el año.</p>
+        <div class="wf-buttons">
+          <button class="wf-btn-primary">AGENDA TU CLASE GRATIS</button>
+          <button class="wf-btn-wa">💬 WHATSAPP</button>
+        </div>
+      </div>
+    </div>
+    <!-- Value Props -->
+    <div class="wf-value-props">
+      <div class="wf-value-prop"><div class="icon">🎵</div><h4>Aprende a Tu Ritmo</h4><p>Sin presiones, con motivación. Clases individuales adaptadas a tu nivel.</p></div>
+      <div class="wf-value-prop"><div class="icon">🎤</div><h4>Toca en Vivo</h4><p>Presentaciones en vivo donde subes a un escenario real con público.</p></div>
+      <div class="wf-value-prop"><div class="icon">🎸</div><h4>Forma tu Banda</h4><p>Taller de Bandas los sábados. Arma tu grupo y toca covers u originales.</p></div>
+    </div>
+    <!-- Instruments -->
+    <div class="wf-instruments">
+      <div class="label">ELIGE TU INSTRUMENTO</div>
+      <h3>+9 INSTRUMENTOS DISPONIBLES</h3>
+      <div class="wf-inst-grid">
+        <div class="wf-inst-card"><div class="emoji">🎸</div><div class="name">Guitarra</div></div>
+        <div class="wf-inst-card"><div class="emoji">🎤</div><div class="name">Canto</div></div>
+        <div class="wf-inst-card"><div class="emoji">🥁</div><div class="name">Batería</div></div>
+        <div class="wf-inst-card"><div class="emoji">🎹</div><div class="name">Piano</div></div>
+        <div class="wf-inst-card"><div class="emoji">⌨️</div><div class="name">Teclado</div></div>
+        <div class="wf-inst-card"><div class="emoji">🎻</div><div class="name">Violín</div></div>
+        <div class="wf-inst-card"><div class="emoji">🪕</div><div class="name">Ukelele</div></div>
+        <div class="wf-inst-card"><div class="emoji">🎸</div><div class="name">Bajo</div></div>
+        <div class="wf-inst-card"><div class="emoji">🎷</div><div class="name">Saxofón</div></div>
+      </div>
+    </div>
+    <!-- Galas -->
+    <div class="wf-galas">
+      <div class="label">LO QUE NOS HACE DIFERENTES</div>
+      <h3>PRESENTACIONES EN VIVO</h3>
+      <p>No solo aprendes un instrumento — te subes a un escenario real. 2 a 3 veces al año organizamos presentaciones donde nuestros alumnos tocan en vivo frente a público.</p>
+      <div class="wf-gallery">
+        <div class="wf-gallery-item">foto gala 1</div>
+        <div class="wf-gallery-item">foto gala 2</div>
+        <div class="wf-gallery-item">foto gala 3</div>
+      </div>
+    </div>
+    <!-- Stats -->
+    <div class="wf-stats">
+      <div class="wf-stat"><div class="number">+1.000</div><div class="label">Alumnos formados</div></div>
+      <div class="wf-stat"><div class="number">20+</div><div class="label">Años de experiencia</div></div>
+      <div class="wf-stat"><div class="number">+9</div><div class="label">Instrumentos</div></div>
+    </div>
+    <!-- Final CTA -->
+    <div class="wf-final-cta">
+      <h3>¿LISTO PARA EMPEZAR?</h3>
+      <p>Tu primera clase es gratis. Sin compromiso.</p>
+      <div class="wf-form">
+        <div class="wf-form-field">Nombre</div>
+        <div class="wf-form-field">Teléfono</div>
+        <div class="wf-form-field">Instrumento</div>
+        <div class="wf-form-field">Edad</div>
+        <button class="wf-form-submit">QUIERO MI CLASE GRATIS</button>
+      </div>
+    </div>
+    <!-- Footer -->
+    <div class="wf-footer">
+      <span>© 2026 Casa de la Música · Temuco, Chile</span>
+      <div class="wf-footer-links"><span>Instagram</span><span>Facebook</span><span>WhatsApp</span></div>
+    </div>
+  </div>
+</div>
+
+<script>
+function switchTab(tabId) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('tab-' + tabId).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
